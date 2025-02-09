@@ -47,9 +47,9 @@ processNumber(n: int): {ok: int} | {error: string} {
 
 // Pattern matching on unions
 match msg {
-    {type: "text", content} => handleText(content)
-    {type: "image", url, size} => handleImage(url, size)
-    {type: "error", code, message} => logError(code, message)
+    {type: "text", content} -> handleText(content)
+    {type: "image", url, size} -> handleImage(url, size)
+    {type: "error", code, message} -> logError(code, message)
 }
 ```
 
@@ -130,9 +130,9 @@ pid <- message
 
 // Receive messages
 receive {
-    {type: "hello"} => handleHello()
-    {type: "bye"} => handleBye()
-    _ => handleDefault()
+    {type: "hello"} -> handleHello()
+    {type: "bye"} -> handleBye()
+    _ -> handleDefault()
 }
 ```
 
@@ -157,13 +157,13 @@ First-class support for pattern matching with constraints:
 ```fluffy
 process(msg) {
     match msg {
-        {command: "start"} where .value > 0 => 
+        {command: "start"} where .value > 0 -> 
             msg with {status: "running"}
-        {command: "stop"} => 
+        {command: "stop"} -> 
             msg with {status: "stopped"}
-        m where .isCalm => 
+        m where .isCalm -> 
             handleCalm(m)
-        _ => 
+        _ -> 
             msg with {error: "invalid command"}
     }
 }
