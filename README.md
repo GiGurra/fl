@@ -27,6 +27,11 @@ person: Person = {name: "Alice", isCalm: true}
 
 // Extra fields are fine
 expanded: Person with {extra: string} = {name: "Bob", isCalm: true, age: 25, extra: "field"}
+
+// We can also mark it as potentially having extra fields with _,
+// which means the compiler will infer the stuff you didn't feel like typing yourself.
+expanded: Person with _ = {name: "Bob", isCalm: true, age: 25, extra: "field"}
+println(expanded.extra)  // "field", compiles and works
 ```
 
 ### Comptime
