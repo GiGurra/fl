@@ -26,7 +26,7 @@ Person = {
 }
 
 // Extra fields are allowed
-expanded: Person+ = {name: "Bob", isCalm: true, age: 25, extra: "field"}
+expanded: Person = {name: "Bob", isCalm: true, age: 25, extra: "field"}
 println(expanded.extra)  // "field", compiles and works
 println(expanded.extra2)  // does not compile
 ```
@@ -111,7 +111,7 @@ processShortString(someString)
 All data is immutable. State changes create new values using the `with` operator:
 
 ```fluffy
-calmDown(d angry+) calm+ {
+calmDown(d angry) { // omit return type to infer
     d with {isCalm: true}
 }
 
