@@ -108,7 +108,7 @@ processShortString(someString)
 All data is immutable. State changes create new values using the `with` operator:
 
 ```fluffy
-calmDown(angry d) -> calm {
+calmDown(d angry+) calm+ {
     d with {isCalm: true}
 }
 
