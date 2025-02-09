@@ -26,6 +26,7 @@ Person = {
 // Extra fields are allowed
 expanded: Person+ = {name: "Bob", isCalm: true, age: 25, extra: "field"}
 println(expanded.extra)  // "field", compiles and works
+println(expanded.extra2)  // does not compile
 ```
 
 ### Union Types
