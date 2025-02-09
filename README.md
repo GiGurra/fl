@@ -142,17 +142,21 @@ receive {
 
 ### Modules and Imports
 
-```fluffy
-// Importing modules
-import {Http, Json} from "std/web"
-import Math from "std/math"
+Just like erlang, we can access any module using a fully qualified name to the function or type:
 
-// Exporting definitions
-export {
-    Person,
-    process
-}
+```fluffy
+some_module:some_function(...)
+x: some_module:some_type = ...
 ```
+
+If you wish to make them locally usable without using the fully qualified name, you can create local aliases:
+
+```fluffy
+some_type = some_module:some_type
+```
+
+There is, intentionally, no way to import/use a different module's functions or types without using the fully qualified
+name or creating a local alias.
 
 ### Pattern Matching
 
@@ -228,6 +232,20 @@ stop(s: State where running) State where stopped {
     s with {status: "stopped"}
 }
 ```
+
+## Exceptions and panics
+
+Fluffy-lang does not have exceptions. Fluffy has panics. Panics are used to signal unrecoverable errors, and are
+enforced to crash the current process. You cannot catch panics, and they are not meant to be caught. Panics are
+used to signal that something went wrong and the process should crash.
+
+Because of how the BEAM works, panics are not as bad as they sound. The BEAM is designed to handle process crashes
+gracefully, and the supervisor tree will restart the process if it crashes.
+
+```fluffy
+panic("Something went wrong")
+```
+
 
 ## Current Status
 
