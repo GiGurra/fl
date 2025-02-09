@@ -88,10 +88,10 @@ logical constraints?
 Enter comptime constraint extension and inference:
 
 ```fluffy
-comptime proof can_infer(int with _ < limit0, int with _ < limit1) bool {
+comptime proof(int with _ < limit0, int with _ < limit1) bool {
     return limit0 < limit1
 }
-comptime proof can_infer(comptime x int, int with _ < limit1) bool {
+comptime proof(x int, int with _ < limit1) bool {
     return x < limit1
 }
 ```
@@ -116,6 +116,33 @@ myNumber = 42
 
 processNumber(myNumber)
 ```
+
+### Using comptime proofs at runtime
+
+Comptime proofs are used to propage knowledge throughout the program execution tree.
+But usually when your receive data from the outside world, you can't be sure it complies with the constraints you need.
+Therefor, you can reach out and use any comptime proof at runtime to verify the data. After verification, the
+data type is statically known to comply with the constraints.
+
+```fluffy
+where shortString = string with _.length <= 10
+someString = readFromOutsideWorld()
+if !someString is shortString {
+    return {error: "string too long"}
+}
+// someString is now known to be a short string
+processShortString(someString: shortString) {
+    // someString is guaranteed to be short
+}
+processShortString(someString)
+```
+
+### Use cases for proofs at runtime
+
+* Null checks
+* Optional fields sometimes being required 
+* Avoiding duplicate checks
+* Legal state combinations when reaching specific parts of the program
 
 ### Immutable State Transitions
 
