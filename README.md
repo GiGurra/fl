@@ -37,9 +37,9 @@ Message =
 
 processNumber(n: int): {ok: int} | {error: string} {
     if n < 0 {
-        return {error: "number cannot be negative"}
+        early_return {error: "number cannot be negative"}
     }
-    return {ok: n * 2}
+    {ok: n * 2}
 }
 
 // Pattern matching on unions
@@ -78,7 +78,7 @@ The compiler can infer relationships between constraints:
 
 ```fluffy
 comptime proof(int with _ < limit0, int with _ < limit1) bool {
-    return limit0 < limit1
+    limit0 < limit1
 }
 
 myNumber: int with _ < 50 = 42
@@ -94,7 +94,7 @@ where shortString = string with _.length <= 10
 
 someString = readFromOutsideWorld()
 if !someString is shortString {
-    return {error: "string too long"}
+    early_return {error: "string too long"}
 }
 // someString is now known to be a short string
 processShortString(someString)
@@ -188,10 +188,10 @@ where running = .status == "running"
 
 start(s: State where stopped): {ok: State where running} | {error: string} {
     if s.value < 0 {
-        return {error: "invalid starting value"}
+        early_return {error: "invalid starting value"}
     }
     
-    return {ok: s with {
+    {ok: s with {
         status: "running",
         lastStart: timestamp()
     }}
