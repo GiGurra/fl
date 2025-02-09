@@ -4,6 +4,8 @@ A modern programming language for the BEAM (Erlang VM) emphasizing structural ty
 immutable data. Fluffy-lang combines the flexibility of structural typing with the safety of static constraints and the
 robustness of the BEAM platform.
 
+NOTE: This is a thought experiment. All syntax below is work in progress and subject to change.
+
 ## Core Concepts
 
 ### Structural Typing
