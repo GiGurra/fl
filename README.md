@@ -175,7 +175,10 @@ process(msg) {
 
 ## Why Fluffy-Lang?
 
-- **Zero Runtime Overhead for Constraints**: All constraints are checked at compile-time
+- **Zero Runtime Overhead for function parameter constraints**: All constraints are checked at compile-time
+- **First-Class Union Types**: Powerful pattern matching with tagged tuples
+- **Compile-Time Proofs**: Verify constraints at compile-time
+- **Constraints usable both compile and runtime**: Use constraints to verify data at runtime and lift types
 - **Type Safety Without Ceremony**: Structural typing with static guarantees
 - **BEAM Platform**: Proven runtime system with excellent concurrency and fault tolerance
 - **Immutable by Default**: Safe and predictable state management
