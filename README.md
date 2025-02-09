@@ -246,7 +246,7 @@ gracefully, and the supervisor tree will restart the process if it crashes.
 panic("Something went wrong")
 ```
 
-There are no `try` or catch keywords.
+There are no `try` or `catch` keywords.
 
 ## Defer
 
