@@ -36,7 +36,7 @@ println(expanded.extra)  // "field", compiles and works
 
 ### Comptime
 
-Fluffy-lang is a comptime language, meaning all constraints are checked at compile-time. This allows for zero runtime
+Fluffy-lang's constraints in function calls are checked at compile-time. This allows for zero runtime
 overhead and guarantees about the program's behavior.
 
 The language also offers a `comptime` keyword to run code at compile-time.
