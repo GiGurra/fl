@@ -290,6 +290,8 @@ main() {
 
 ⚠️ Fluffy-lang is currently in early development. The syntax and features are subject to change.
 
+First experimental compiler to be written in Go, then maybe later in Fluffy-lang itself.
+
 ## Contributing
 
 We welcome contributions! Please read our [contributing guidelines](CONTRIBUTING.md) before submitting pull requests.
