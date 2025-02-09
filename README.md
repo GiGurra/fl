@@ -90,7 +90,7 @@ myNumber: int with _ < 51 = myNumber  // Works because 50 < 51
 
 ### Runtime Constraint Verification
 
-Comptime proofs can be used at runtime to verify data:
+Comptime proofs and constraints can be used at runtime to verify data:
 
 ```fluffy
 where shortString = string with _.length <= 10
