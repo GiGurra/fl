@@ -123,7 +123,11 @@ Fluffy leverages the BEAM's actor model for concurrency:
 
 ```fluffy
 // Spawn a new process
-pid = spawn(someFunction)
+pid = spawn_typed(someFunction)
+
+// We also know the types of messages that our process can receive,
+// as any function passed to spawn_typed must have a known type signature.
+// We can also use the untyped spawn if we have to work with dynamic types.
 
 // Send message
 pid <- message
