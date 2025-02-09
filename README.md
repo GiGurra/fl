@@ -111,7 +111,8 @@ processShortString(someString)
 All data is immutable. State changes create new values using the `with` operator:
 
 ```fluffy
-calmDown(d angry) { // omit return type to infer
+// omit return type to infer it. Think C++ templates
+calmDown(d angry) {
     d with {isCalm: true}
 }
 
