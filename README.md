@@ -1,12 +1,15 @@
 # Fluffy-Lang (fl)
 
-A modern programming language for the BEAM (Erlang VM) emphasizing structural typing, compile-time constraints, and immutable data. Fluffy-lang combines the flexibility of structural typing with the safety of static constraints and the robustness of the BEAM platform.
+A modern programming language for the BEAM (Erlang VM) emphasizing structural typing, compile-time constraints, and
+immutable data. Fluffy-lang combines the flexibility of structural typing with the safety of static constraints and the
+robustness of the BEAM platform.
 
 ## Core Concepts
 
 ### Structural Typing
 
-Everything in Fluffy-lang is defined by its shape, not its name. Types and constraints are inferred from structure, with names serving as optional hints.
+Everything in Fluffy-lang is defined by its shape, not its name. Types and constraints are inferred from structure, with
+names serving as optional hints.
 
 ```fluffy
 // These are equivalent
@@ -211,14 +214,3 @@ First experimental compiler to be written in Go, targeting the BEAM platform.
 ## Contributing
 
 We welcome contributions! Please read our [contributing guidelines](CONTRIBUTING.md) before submitting pull requests.
-```
-
-This revised README:
-1. Better emphasizes the BEAM connection
-2. Incorporates union types
-3. Shows more consistent syntax
-4. Includes modules and concurrency
-5. Provides more complete examples
-6. Has a clearer structure
-
-Would you like me to explain any part in more detail or make further adjustments?
