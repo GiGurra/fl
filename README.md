@@ -246,6 +246,26 @@ gracefully, and the supervisor tree will restart the process if it crashes.
 panic("Something went wrong")
 ```
 
+There are no `try` or catch keywords.
+
+## Defer
+
+Fluffy has golang style defer. Defer is used to run a function at the end of the current scope, regardless of how the
+scope exits. This is useful for cleanup tasks.
+
+NOTE: While golang's defer runs the deferred function at the end of the current function, Fluffy's defer runs the  
+deferred function at the end of the current scope.
+
+```fluffy
+defer {
+    println("This will run at the end of the scope")
+}
+```
+
+## Loops
+
+Fluffy has Loops. It does however not have mutable variables, so loops are mostly for calling creating external side
+effects, like tests and database interactions etc
 
 ## Current Status
 
