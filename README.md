@@ -116,7 +116,7 @@ processNumber(myNumber)
 
 All data is immutable. State changes create new values using the `with` operator.
 
-```fl
+```fluffy
 calmDown(angry d) -> calm {
     d with {isCalm: true}
 }
@@ -131,7 +131,7 @@ calmPerson = calmDown(person)
 
 Functions are expression-based with implicit returns, but support explicit returns for early exits.
 
-```fl
+```fluffy
 processStuff(angry d) -> calm {
     if !validateInput(d) {
         return d with {error: "invalid input"}
@@ -155,7 +155,7 @@ processStuff(angry d) -> calm {
 
 First-class support for pattern matching with constraints.
 
-```fl
+```fluffy
 process(msg) {
     match msg {
         {command: "start"} where .value > 0 => 
