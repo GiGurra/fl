@@ -253,7 +253,7 @@ There are no `try` or `catch` keywords.
 Fluffy has golang style defer. Defer is used to run a function at the end of the current scope, regardless of how the
 scope exits. This is useful for cleanup tasks.
 
-NOTE: While golang's defer runs the deferred function at the end of the current function, Fluffy's defer runs the  
+NOTE: While golang's defer runs the deferred function at the end of the current function, Fluffy's defer runs the
 deferred function at the end of the current scope.
 
 ```fluffy
