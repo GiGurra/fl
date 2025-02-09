@@ -38,7 +38,7 @@ Message =
     | {type: "image", url: string, size: int}
     | {type: "error", code: int, message: string}
 
-processNumber(n: int): {ok: int} | {error: string} {
+processNumber(n: int) {ok: int} | {error: string} {
     if n < 0 {
         early_return {error: "number cannot be negative"}
     }
@@ -173,6 +173,23 @@ process(msg) {
 }
 ```
 
+or clause style:
+
+```fluffy
+process(msg where .command == "start" && .value > 0) {
+    msg with {status: "running"}
+} 
+process(msg where .command == "stop") {
+    msg with {status: "stopped"}
+}
+process(msg where .isCalm) {
+    handleCalm(msg)
+}
+process(msg) {
+    msg with {error: "invalid command"}
+}
+```
+
 ## Why Fluffy-Lang?
 
 - **Zero Runtime Overhead for function parameter constraints**: All constraints are checked at compile-time
@@ -196,7 +213,7 @@ State = {
 where stopped = .status == "stopped"
 where running = .status == "running"
 
-start(s: State where stopped): {ok: State where running} | {error: string} {
+start(s: State where stopped) {ok: State where running} | {error: string} {
     if s.value < 0 {
         early_return {error: "invalid starting value"}
     }
@@ -207,7 +224,7 @@ start(s: State where stopped): {ok: State where running} | {error: string} {
     }}
 }
 
-stop(s: State where running): State where stopped {
+stop(s: State where running) State where stopped {
     s with {status: "stopped"}
 }
 ```
