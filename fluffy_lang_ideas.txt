@@ -1,0 +1,65 @@
+Dude struct {
+  isCalm bool
+}
+
+constraint calm[Dude] {
+  self.isCalm == true
+}
+
+constraint angry[Dude](d Dude) {
+  self.isCalm == false
+}
+
+// calm and angry are statically incompatible
+
+// Default constraints are too messy.
+// NOTE: pointers are statically non-nil by default, unless explicitly opted out on a per-variable basis
+
+// Typedefs go style, to make it more readable
+type RegularDude Dude calm
+type AngryDude Dude angry !calm
+
+// 'default' makes this constraint always applied (to all pointers unless otherwise specified)
+
+// 'nullable' (nilable better?) is a language keyword 
+
+
+main() {
+  d Dude // compiles
+  d2 Dude { isCalm = true } // compiles
+  d3 Dude angry // compiles, explicitly
+  d4 AngryDude // does not compile, constraint not satisfied
+  
+  
+  d5 Dude = readDudeFromFile()
+  if d5 angry {
+    // in here, type of d5 is Dude angry
+  } else {
+    // in here, type of d5 is Dude
+  }
+  
+  calmDownDude(d5) // does not compile
+  agitateDude(d5) // does not compile
+  
+  // We can also auto update the type in the outer scope, if we short curcuit any failures
+  if !d5 angry {
+    return ... // exit
+  }
+  
+  // Here d5 is Dude angry!
+  d6 = calmDownDude(d5) // compiles!
+  agitateDude(d5) // does not compile
+  
+  agitateDude(d6) // compiles!
+  
+  d7 Dude
+  d8 Dude
+  d8 = d7 // does not compile - all data is immutable
+}
+
+calmDownDude(d Dude angry) Dude calm {
+}
+
+agitateDude(d Dude calm) Dude angry {
+}
+
