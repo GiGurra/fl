@@ -239,11 +239,13 @@ stop(s: State where running) State where stopped {
 
 ## Exceptions and panics
 
+FYI: a "process" below should be considered a virtual thread/goroutine/green thread. Think BEAM (erlang, elixir, etc).
+
 Fluffy-lang does not have exceptions. Fluffy has panics. Panics are used to signal unrecoverable errors, and are
 enforced to crash the current process. You cannot catch panics, and they are not meant to be caught. Panics are
 used to signal that something went wrong and the process should crash.
 
-Panics are not as bad as they sound. The runtime is designed to handle virtual thread/subprocess crashes
+Panics are not as bad as they sound. The runtime is designed to handle process crashes
 gracefully, and a properly configured supervisor will address crashes.
 
 ```fluffy
