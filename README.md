@@ -23,7 +23,8 @@ Person = {
     age: int
 }
 
-// Extra fields are allowed
+// Extra fields are allowed. There may be syntax available at some point
+// to opt into stricter checks (i.e. not permitting extra/undeclared fields)
 expanded: Person = {name: "Bob", isCalm: true, age: 25, extra: "field"}
 println(expanded.extra)  // "field", compiles and works
 println(expanded.extra2)  // does not compile
