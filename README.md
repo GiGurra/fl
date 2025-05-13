@@ -246,7 +246,9 @@ enforced to crash the current process. You cannot catch panics, and they are not
 used to signal that something went wrong and the process should crash.
 
 Panics are not as bad as they sound. The runtime is designed to handle process crashes
-gracefully, and a properly configured supervisor will address crashes.
+gracefully, and a properly configured supervisor will address crashes. It can do so by something like
+restarting the process, creating a new one, or delegating to a supervisor higher up, eventually crashing the
+whole program unless told to do otherwise. Default: panics will crash your app.
 
 ```fluffy
 panic("Something went wrong")
