@@ -272,7 +272,7 @@ defer {
 
 ## Loops
 
-Fluffy has Loops. It does however not have mutable variables, so loops are mostly for calling creating external side
+Fluffy has Loops. It does however not have mutable variables, so loops are mostly for creating external side
 effects, like tests and database interactions etc
 
 ## Current Status
