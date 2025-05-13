@@ -121,9 +121,9 @@ calmPerson = calmDown(person)
 // Result: {name: "Bob", mood: "grumpy", isCalm: true}
 ```
 
-### Concurrency (BEAM-based)
+### Concurrency
 
-Fluffy leverages the BEAM's actor model for concurrency:
+Fluffy will have some kind of concurrency model. Possibly beam style supervision and actor model, ikd :D.
 
 ```fluffy
 // Spawn a new process
@@ -146,7 +146,7 @@ receive {
 
 ### Modules and Imports
 
-Just like erlang, we can access any module using a fully qualified name to the function or type:
+We can access any module using a fully qualified name to the function or type:
 
 ```fluffy
 some_module:some_function(...)
@@ -205,7 +205,6 @@ process(msg) {
 - **Compile-Time Proofs**: Verify constraints at compile-time
 - **Constraints usable both compile and runtime**: Use constraints to verify data at runtime and lift types
 - **Type Safety Without Ceremony**: Structural typing with static guarantees
-- **BEAM Platform**: Proven runtime system with excellent concurrency and fault tolerance
 - **Immutable by Default**: Safe and predictable state management
 - **Expression-Based**: Clean and functional style
 - **Flexible Constraints**: Power of dependent types with simplicity of structural typing
@@ -243,8 +242,8 @@ Fluffy-lang does not have exceptions. Fluffy has panics. Panics are used to sign
 enforced to crash the current process. You cannot catch panics, and they are not meant to be caught. Panics are
 used to signal that something went wrong and the process should crash.
 
-Because of how the BEAM works, panics are not as bad as they sound. The BEAM is designed to handle process crashes
-gracefully, and the supervisor tree will restart the process if it crashes.
+Panics are not as bad as they sound. The runtime is designed to handle virtual thread/subprocess crashes
+gracefully, and a properly configured supervisor will address crashes.
 
 ```fluffy
 panic("Something went wrong")
@@ -273,9 +272,9 @@ effects, like tests and database interactions etc
 
 ## Current Status
 
-⚠️ Fluffy-lang is currently in early development. The syntax and features are subject to change.
+⚠️ Fluffy-lang is a thought experiment. The syntax and features are subject to change.
 
-First experimental compiler to be written in Go, targeting the BEAM platform.
+First experimental compiler tbd :D
 
 ## Contributing
 
