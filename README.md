@@ -41,8 +41,10 @@ Message =
 
 processNumber(n: int) {ok: int} | {error: string} {
     if n < 0 {
+        // early_return is a reserved keyword. There is no regular 'return'
         early_return {error: "number cannot be negative"}
     }
+    // The last expression is implicitly returned by default
     {ok: n * 2}
 }
 
