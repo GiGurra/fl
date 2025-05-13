@@ -2,7 +2,7 @@
 
 **NOTE: This is a thought experiment, with lots of LLM generated text. All syntax below is work in progress and subject to change.**
 
-A modern programming language emphasizing structural typing, compile-time constraints, and immutable data.
+A programming language emphasizing structural typing, compile-time constraints, and immutable data.
 
 ## Core Concepts
 
