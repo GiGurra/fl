@@ -31,7 +31,7 @@ println(expanded.extra2)  // does not compile
 
 ### Union Types
 
-Fluffy uses union types for representing different variants, similar to Erlang's tagged tuples:
+Fluffy uses union types for representing different variants:
 
 ```fluffy
 Message = 
