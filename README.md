@@ -1,10 +1,10 @@
 # Fluffy-Lang (fl)
 
+**NOTE: This is a thought experiment, with lots of LLM generated text. All syntax below is work in progress and subject to change.**
+
 A modern programming language for the BEAM (Erlang VM) emphasizing structural typing, compile-time constraints, and
 immutable data. Fluffy-lang combines the flexibility of structural typing with the safety of static constraints and the
 robustness of the BEAM platform.
-
-NOTE: This is a thought experiment. All syntax below is work in progress and subject to change.
 
 ## Core Concepts
 
