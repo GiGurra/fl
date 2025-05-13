@@ -2,9 +2,7 @@
 
 **NOTE: This is a thought experiment, with lots of LLM generated text. All syntax below is work in progress and subject to change.**
 
-A modern programming language for the BEAM (Erlang VM) emphasizing structural typing, compile-time constraints, and
-immutable data. Fluffy-lang combines the flexibility of structural typing with the safety of static constraints and the
-robustness of the BEAM platform.
+A modern programming language emphasizing structural typing, compile-time constraints, and immutable data.
 
 ## Core Concepts
 
@@ -37,7 +35,7 @@ Fluffy uses union types for representing different variants, similar to Erlang's
 
 ```fluffy
 Message = 
-    | {type: "text", content: string}
+    {type: "text", content: string}
     | {type: "image", url: string, size: int}
     | {type: "error", code: int, message: string}
 
@@ -56,7 +54,7 @@ match msg {
 }
 ```
 
-### Constraints
+### Comptime Constraints
 
 Constraints define compile-time verifiable conditions. They work based on structure and can be named for convenience.
 
@@ -80,7 +78,7 @@ myNumber: int with _ < 50 = 42
 
 ### Compile-time Constraint Inference
 
-The compiler can infer relationships between constraints:
+The compiler can infer relationships between constraints, if you provide the proof (think Zig's comptime):
 
 ```fluffy
 comptime proof(int with _ < limit0, int with _ < limit1) bool {
