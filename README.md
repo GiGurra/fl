@@ -124,7 +124,7 @@ calmPerson = calmDown(person)
 
 ### Concurrency
 
-Fluffy will have some kind of concurrency model. Possibly beam style supervision and actor model, ikd :D.
+Fluffy will have some kind of concurrency model. Possibly beam style supervision and actor model, idk :D.
 
 ```fluffy
 // Spawn a new process
