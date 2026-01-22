@@ -1,0 +1,49 @@
+site_name: Fluffy-Lang
+site_url: https://gigurra.github.io/fl/
+site_description: A programming language that doesn't exist yet
+
+repo_name: GiGurra/fl
+repo_url: https://github.com/GiGurra/fl
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: pink
+      accent: pink
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: pink
+      accent: pink
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - content.code.copy
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - admonition
+  - pymdownx.details
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Guide:
+      - Philosophy: guide/philosophy.md
+      - Why Fluffy?: guide/why.md
+  - Language:
+      - Structural Typing: language/structural-typing.md
+      - Constraints: language/constraints.md
+      - State & Immutability: language/state.md
+      - Concurrency: language/concurrency.md
+      - Error Handling: language/errors.md
